@@ -3,4 +3,4 @@
   remote_user: root
   roles:
     -
-      role: rootcrypto
+      role: ansible-rootcrypto
