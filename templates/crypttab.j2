@@ -1,0 +1,4 @@
+# <target name> <source device> <key file> <options>
+{% for device in rootcrypto_devices %}
+{{ device.name }} {{ device.device }} {{ device.key_file }} {{ device.options }}
+{% endfor %}

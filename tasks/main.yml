@@ -1,0 +1,42 @@
+- name: ensure required packages are present
+  apt:
+    pkg: "{{ item }}"
+  with_items: rootcrypto_packages
+
+- name: ensure initramfs config is latest
+  template:
+    src: initramfs-tools/initramfs.conf.j2
+    dest: /etc/initramfs-tools/initramfs.conf
+    mode: 0644
+  register: config
+
+- name: ensure initramfs modules are latest
+  template:
+    src: initramfs-tools/modules.j2
+    dest: /etc/initramfs-tools/modules
+    mode: 0644
+  register: modules
+
+- name: ensure initramfs mount hook is latest
+  template:
+    src: initramfs-tools/hooks/mount_cryptroot.j2
+    dest: /etc/initramfs-tools/hooks/mount_cryptroot
+    mode: 0755
+  register: hooks
+
+- name: ensure authorized_keys are present
+  authorized_key:
+    key: "{{ item }}"
+    user: root
+    path: /etc/initramfs-tools/root/.ssh/authorized_keys
+  with_items: rootcrypto_sshkeys
+  register: sshkeys
+
+- name: rebuild initramfs if neccessary
+  shell: update-initramfs -k all -u
+  when: config.changed or modules.changed or hooks.changed or sshkeys.changed
+
+- name: ensure crypttab is latest
+  template:
+    src: crypttab.j2
+    dest: /etc/crypttab

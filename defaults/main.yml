@@ -1,0 +1,40 @@
+rootcrypto_packages:
+  - cryptsetup
+  - lvm2
+  - busybox
+  - dropbear
+  - mdadm
+
+rootcrypto_network_device: eth0
+rootcrypto_network_address: "{{ ansible_default_ipv4.address }}"
+rootcrypto_network_netmask: "{{ ansible_default_ipv4.netmask }}"
+rootcrypto_network_gateway: "{{ ansible_default_ipv4.gateway }}"
+
+rootcrypt_modules:
+  - r8169
+  - raid0
+  - raid1
+  - raid456
+  - md
+  - aes
+  - aes_i586
+  - aes_x86_64
+  - aes_generic
+  - dm-crypt
+  - dm-mod
+  - sha256
+  - sha256_generic
+  - lrw
+  - xts
+  - crypto_blkcipher
+  - gf128mul
+
+rootcrypto_mount_allow_shell: 0
+rootcrypto_sshkeys: []
+rootcrypto_devices: []
+#rootcrypto_devices:
+#  -
+#    name:
+#    device:
+#    key_file:
+#    options:
