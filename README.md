@@ -1,7 +1,7 @@
 ansible-rootcrypto
 ==================
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-apt-blue.svg)](https://galaxy.ansible.com/list#/roles/3787)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-apt-blue.svg)](https://galaxy.ansible.com/list#/roles/3787) [![Build Status](https://travis-ci.org/systemli/ansible-rootcrypto.svg)](https://travis-ci.org/systemli/ansible-rootcrypto)
 
 Simple ansible role to maintain a existing Debian root encryption
 

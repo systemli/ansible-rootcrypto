@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    -
+      role: ansible-rootcrypto
+      rootcrypto_network_device: lo
+      rootcrypto_network_address: 127.0.0.1
+      rootcrypto_network_netmask: 225.0.0.0
+      rootcrypto_network_gateway: 127.0.0.1
