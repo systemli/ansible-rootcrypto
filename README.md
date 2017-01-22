@@ -1,7 +1,7 @@
 ansible-rootcrypto
 ==================
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-rootcrypto-blue.svg)](https://galaxy.ansible.com/list#/roles/3787) [![Build Status](https://travis-ci.org/systemli/ansible-rootcrypto.svg)](https://travis-ci.org/systemli/ansible-rootcrypto)
+[![Build Status](https://travis-ci.org/systemli/ansible-rootcrypto.svg)](https://travis-ci.org/systemli/ansible-rootcrypto) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-rootcrypto-blue.svg)](https://galaxy.ansible.com/systemli/rootcrypto/)
 
 Simple ansible role to maintain a existing Debian root encryption
 
@@ -61,6 +61,13 @@ Defaults:
     rootcrypto_sshkeys: []
     rootcrypto_devices: []
 
+Download
+--------
+
+Download latest release with `ansible-galaxy`
+
+	ansible-galaxy install systemli.rootcrypto
+
 Example Playbook
 ----------------
 
@@ -72,3 +79,8 @@ License
 -------
 
 GPLv3
+
+Author Information
+------------------
+
+https://www.systemli.org
