@@ -1,7 +1,7 @@
 - name: ensure required packages are present
   apt:
     pkg: "{{ item }}"
-  with_items: rootcrypto_packages
+  with_items: "{{ rootcrypto_packages }}"
 
 - name: ensure initramfs config is latest
   template:
@@ -29,7 +29,7 @@
     key: "{{ item }}"
     user: root
     path: /etc/initramfs-tools/root/.ssh/authorized_keys
-  with_items: rootcrypto_sshkeys
+  with_items: "{{ rootcrypto_sshkeys }}"
   register: sshkeys
 
 - name: rebuild initramfs if neccessary
